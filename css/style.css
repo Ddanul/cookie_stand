@@ -1,18 +1,10 @@
-/* salmon{
-    opacity: 0.5;
-    position: absolute;
-    top: 80px;
-    right: 0;
-    width: 200px;
-    height: 100px;
-} */
-
 body{
     background-image: url('../img/salmon.png');
     background-size: 50% auto;
     font-family: sans-serif;
     color: #143245;
     background-color: #C3D4E2;
+    cursor: url(../img/salmonPointer.png), auto;
 }
 
 .list{
