@@ -1,0 +1,50 @@
+/* salmon{
+    opacity: 0.5;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+} */
+
+body{
+    background-image: url('../img/salmon.png');
+    background-size: 50% auto;
+    font-family: sans-serif;
+    color: #143245;
+    background-color: #C3D4E2;
+}
+
+.list{
+    display: inline-block;
+    background-color: #ED8E76;
+    opacity: .85;
+    width: 19%;
+    margin: 10px 0 0 3px;
+    border-radius: 5px;
+    border: 1px solid #143245;
+}
+
+li{
+    border-bottom: 1px solid #504D4D;
+    margin-left: 10px;
+    padding: 5px 0 5px 0;
+}
+
+h1{
+    font-size: 30px;
+    text-align: center;
+    padding: 25px 0 10px 0;
+    color: #143245;
+    background-color: whitesmoke;
+    opacity: 0.85;
+}
+
+h3{
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 5px 10px 5px;
+    border-bottom: 3px solid black;
+    color: #143245;
+    
+}
