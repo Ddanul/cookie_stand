@@ -20,8 +20,6 @@ function Store(name, min, max, avg){
 Store.prototype.custPerHr = randCust;
 Store.prototype.salesPerHour = cookiesSold;
 Store.prototype.addRow = addRow;
-Store.prototype.finalTotal = finalTotal;
-Store.prototype.updateFooter = updateFooter;
 
 //Constructing new Stores
 var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
@@ -53,34 +51,24 @@ function cookiesSold() {
 
 //populates header hours on table
 function makeHeader() {
-
   //appends empty placeholder cell
   var timeHead = document.getElementById('time');
   var empty = document.createElement('th');
   empty.textContent = '';
   timeHead.appendChild(empty);
-  
-  for (var i = 0; i < 15; i++) {
-
+  for (var i = 0; i <= 15; i++) {
     //adds in the times of operation to table header
     timeHead = document.getElementById('time');
     var hour = document.createElement('th');
     hour.textContent = `${hours[i]}`;
     timeHead.appendChild(hour);
   }
-  //displays the total for location
-  var location = document.getElementById('time');
-  var hour = document.createElement('th');
-  hour.textContent = hours[hours.length - 1];
-  location.appendChild(hour);
 }
 
 //adds a row and populates the table with values
 function addRow(){
-
   //generates random cookie sales values
   this.salesPerHour();
-
   //adds a new row with store name to the body of the table
   var newRow = document.getElementById('body');
   var store = document.createElement('tr');
@@ -88,29 +76,13 @@ function addRow(){
   storeName.textContent = this.name;
   store.appendChild(storeName);
   newRow.appendChild(store);
-
   //populates tBody items for each location in table
   for (var i = 0; i <= 15; i++) {
     var hour = document.createElement('td');
     hour.textContent = this.cookiePerHour[i];
     store.appendChild(hour)
     newRow.appendChild(store);
-  }
-
-  this.finalTotal();
-}
-
-//calculates the final total after a new store is added.
-function finalTotal(){
-  for (var j = 0; j <= 15; j++) {
-    grandTotal[j] += parseInt(this.cookiePerHour[j]);
-  }
-  this.updateFooter();
-}
-  
-//function used to update values of grand total in footer after a new store is added
-function updateFooter(){
-  for (var i = 0; i <= 15; i++) {
+    grandTotal[i] += parseInt(this.cookiePerHour[i]);
     var footer = document.getElementsByClassName('foot'+i);
     footer[0].textContent = grandTotal[i];
   }
@@ -129,9 +101,7 @@ function addFooter(){
   var footTitle = document.createElement('th');
   footTitle.textContent = 'Grand Total';
   footer.appendChild(footTitle);
-  
   for (var i = 0; i <= 15; i++) {
-
     //adds in the totals to table footer
     footer = document.getElementById('foot');
     var hour = document.createElement('td');
@@ -150,7 +120,6 @@ newStore.addEventListener('submit', function(e){
   var min = parseInt(e.target.storeMin.value);
   var max = parseInt(e.target.storeMax.value);
   var avg = parseInt(e.target.storeAvg.value);
-  debugger;
   if(min > max){
     alert('Your minimum value cannot be greater than your max!');
   }else{
