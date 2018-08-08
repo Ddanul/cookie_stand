@@ -16,6 +16,7 @@ function Store(name, min, max, avg){
   this.cookiePerHour = [];
 }
 
+//assigns methods to Store objects
 Store.prototype.custPerHr = randCust;
 Store.prototype.salesPerHour = cookiesSold;
 Store.prototype.addRow = addRow;
@@ -97,6 +98,7 @@ function addRow(){
   this.finalTotal();
 }
 
+//calculates the final total after a new store is added.
 function finalTotal(){
   for (var j = 0; j <= 15; j++) {
     grandTotal[j] += parseInt(this.cookiePerHour[j]);
@@ -104,6 +106,7 @@ function finalTotal(){
   this.updateFooter();
 }
   
+//function used to update values of grand total in footer after a new store is added
 function updateFooter(){
   for (var i = 0; i <= 15; i++) {
     var footer = document.getElementsByClassName('foot'+i);
@@ -118,6 +121,7 @@ function populateTable(){
   }
 }
 
+//function used to initially add a footer to the table
 function addFooter(){
   var footer = document.getElementById('foot');
   var footTitle = document.createElement('th');
@@ -141,10 +145,13 @@ function addFooter(){
   location.appendChild(hour);
 }
 
+//Form input used to generate new store location and populate new row
 var newStore = document.getElementById('storeForm');
 newStore.addEventListener('submit', function(e){
   e.preventDefault();
   console.log("Event has been triggered.");
+  var addNewStore = new Store(e.target.storeName.value, e.target.storeMin.value, e.target.storeMax.value, e.target.storeAvg.value);
+  addNewStore.addRow();
 })
 
 //calls on functions
