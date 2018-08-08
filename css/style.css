@@ -7,29 +7,18 @@ body{
     cursor: url(../img/salmonPointer.png), auto;
 }
 
-.list{
-    display: inline-block;
-    background-color: #ED8E76;
-    opacity: .85;
-    width: 19%;
-    margin: 10px 0 0 3px;
-    border-radius: 5px;
-    border: 1px solid #143245;
-}
-
-li{
-    border-bottom: 1px solid #504D4D;
-    margin-left: 10px;
-    padding: 5px 0 5px 0;
-}
-
-h1{
+.head{
     font-size: 30px;
+    font-weight: bolder;
     text-align: center;
     padding: 25px 0 10px 0;
     color: #143245;
     background-color: whitesmoke;
     opacity: 0.85;
+}
+
+.link{
+    font-size: 15px;
 }
 
 h3{
@@ -39,4 +28,34 @@ h3{
     border-bottom: 3px solid black;
     color: #143245;
     
+}
+
+.table{
+    background-color: #ED8E76;
+    opacity: .9;
+    width: fit-content;
+    margin: 100px auto;
+    border-radius: 10px;
+    border: 2px solid #9B7C7C;
+}
+
+th{
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+td{
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+tr{
+    border-top: 1px solid #9B7C7C;
+}
+
+#time{
+    border-top: none;
 }

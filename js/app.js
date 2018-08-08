@@ -2,101 +2,143 @@
 
 console.log('js is linked');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
+var grandTotal = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-var firstAndPike = {
-  name: '1st and Pike',
-  tag: 'firstAndPike',
-  min: 23,
-  max: 65,
-  avg: 6.3,
-  custPerHr: randCust,
-  salesPerHour: cookiesSold,
-  cookiePerHour: []
+//Store constructor
+function Store(name, tag, min, max, avg){
+  this.name = name;
+  this.tag = tag;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+  this.cookiePerHour = [];
 }
 
-var seaTac = {
-  name: 'SeaTac Airport',
-  tag: 'seaTac',
-  min: 3,
-  max: 24,
-  avg: 1.2,
-  custPerHr: randCust,
-  salesPerHour: cookiesSold,
-  cookiePerHour: []
-}
+Store.prototype.custPerHr = randCust;
+Store.prototype.salesPerHour = cookiesSold;
+Store.prototype.addRow = addRow;
+Store.prototype.finalTotal = finalTotal;
+Store.prototype.updateFooter = updateFooter;
 
-var seaCenter = {
-  name: 'Seattle Center',
-  tag: 'seaCenter',
-  min: 11,
-  max: 38,
-  avg: 3.7,
-  custPerHr: randCust,
-  salesPerHour: cookiesSold,
-  cookiePerHour: []
-}
-
-var capHill = {
-  name: 'Capitol Hill',
-  tag: 'capHill',
-  min: 20,
-  max: 38,
-  avg: 2.3,
-  custPerHr: randCust,
-  salesPerHour: cookiesSold,
-  cookiePerHour: []
-}
-
-var alki = {
-  name: 'Alki',
-  tag: 'alki',
-  min: 2,
-  max: 16,
-  avg: 4.6,
-  custPerHr: randCust,
-  salesPerHour: cookiesSold,
-  cookiePerHour: [],
-}
+//Constructing new Stores
+var firstAndPike = new Store('1st and Pike', 'firstAndPike', 23, 65, 6.3);
+var seaTac = new Store('SeaTac Airport', 'seaTac', 3, 24, 1.2);
+var seaCenter = new Store('Seattle Center', 'seaCenter', 11, 38, 3.7);
+var capHill = new Store('Capitol Hill', 'capHill', 20, 38, 2.3);
+var alki = new Store('Alki', 'alki', 2, 16, 4.6);
 
 var locations = [firstAndPike, seaTac, seaCenter, capHill, alki];
 
 //Generates a random number given min and max customers of store
 function randCust() {
-  console.log('This is random!');
   var random = Math.floor(Math.random() * (this.max - this.min) + this.min);
-  console.log('Random Number: ' + random);
   return random;
 }
 
 //Calculates the number of cookies sold per hour using random number generated and avg
 function cookiesSold() {
+  var total = 0;
   for (var i = 0; i < 15; i++) {
     var newCookie = Math.round(this.custPerHr() * this.avg)
     this.cookiePerHour.push(newCookie);
-    console.log('Cookie per hour ' + i + ' : ' + newCookie);
+    total += newCookie;
+  }
+  this.cookiePerHour.push(total);
+}
+
+//populates header hours on table
+function makeHeader() {
+
+  //appends empty placeholder cell
+  var timeHead = document.getElementById('time');
+  var empty = document.createElement('th');
+  empty.textContent = '';
+  timeHead.appendChild(empty);
+  
+  for (var i = 0; i < 15; i++) {
+
+    //adds in the times of operation to table header
+    timeHead = document.getElementById('time');
+    var hour = document.createElement('th');
+    hour.textContent = `${hours[i]}`;
+    timeHead.appendChild(hour);
+  }
+  //displays the total for location
+  var location = document.getElementById('time');
+  var hour = document.createElement('th');
+  hour.textContent = hours[hours.length - 1];
+  location.appendChild(hour);
+}
+
+//adds a row and populates the table with values
+function addRow(){
+
+  //generates random cookie sales values
+  this.salesPerHour();
+
+  //adds a new row with store name to the body of the table
+  var newRow = document.getElementById('body');
+  var store = document.createElement('tr');
+  var storeName = document.createElement('th');
+  storeName.textContent = this.name;
+  store.appendChild(storeName);
+  newRow.appendChild(store);
+
+  //populates tBody items for each location in table
+  for (var i = 0; i <= 15; i++) {
+    var hour = document.createElement('td');
+    hour.textContent = this.cookiePerHour[i];
+    store.appendChild(hour)
+    newRow.appendChild(store);
+  }
+
+  this.finalTotal();
+}
+
+function finalTotal(){
+  for (var j = 0; j <= 15; j++) {
+    grandTotal[j] += parseInt(this.cookiePerHour[j]);
+  }
+  this.updateFooter();
+}
+  
+function updateFooter(){
+  for (var i = 0; i <= 15; i++) {
+    var footer = document.getElementsByClassName('foot'+i);
+    footer[0].textContent = grandTotal[i];
   }
 }
 
-function display() {
+//calls to populate all stores into the table
+function populateTable(){
   for (var j = 0; j < locations.length; j++) {
-    //generates random cookies for each location
-    locations[j].salesPerHour();
-    var total = 0;
-    //populates li items for location
-    for (var i = 0; i < 15; i++) {
-      var location = document.getElementById(locations[j].tag);
-      var hour = document.createElement('li');
-      hour.textContent = hours[i] + ' : ' + locations[j].cookiePerHour[i];
-      location.appendChild(hour);
-      total = total + locations[j].cookiePerHour[i];
-      console.log('cookiePerHour: ' + locations[j].cookiePerHour[i] + ' total: ' + total);
-    }
-    //displays the total for location
-    var location = document.getElementById(locations[j].tag);
-    var hour = document.createElement('li');
-    hour.textContent = hours[hours.length - 1] + ' : ' + total;
-    location.appendChild(hour);
+    locations[j].addRow();
   }
 }
 
+function addFooter(){
+  var footer = document.getElementById('foot');
+  var footTitle = document.createElement('th');
+  footTitle.textContent = 'Grand Total';
+  footer.appendChild(footTitle);
+  
+  for (var i = 0; i < 15; i++) {
 
+    //adds in the times of operation to table header
+    footer = document.getElementById('foot');
+    var hour = document.createElement('td');
+    hour.textContent = grandTotal[i];
+    hour.className = 'foot'+i;
+    footer.appendChild(hour);
+  }
+  //displays the total for location
+  var location = document.getElementById('foot');
+  var hour = document.createElement('td');
+  hour.className = 'foot'+15;
+  hour.textContent = grandTotal[grandTotal.length-1];
+  location.appendChild(hour);
+}
+
+//calls on functions
+makeHeader();
+addFooter();
