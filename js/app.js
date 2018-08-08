@@ -145,3 +145,4 @@ function addFooter(){
 //calls on functions
 makeHeader();
 addFooter();
+populateTable();
