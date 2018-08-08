@@ -33,13 +33,13 @@
                     <label for="storeName">Store Name: </label><input id="storeName" name="storeName" type="text" required/>
                 </div>
                 <div>
-                    <label for="storeMin">Store Minimum Number of Customers Per Hour: </label><input id="storeMin" name="storeMin" type="text" required/>
+                    <label for="storeMin">Store Minimum Number of Customers Per Hour: </label><input id="storeMin" name="storeMin" type="number" step="1" min=0 required/>
                 </div>
                 <div>
-                    <label for="storeMax">Store Maximum Number of Customers Per Hour: </label><input id="storeMax" name="storeMax" type="text" required/>
+                    <label for="storeMax">Store Maximum Number of Customers Per Hour: </label><input id="storeMax" name="storeMax" type="number" step="1" min=0 required/>
                 </div>
                 <div>
-                    <label for="storeAvg">Store Average Cookies Per Customer: </label><input id="storeAvg" name="storeAvg" type="text" required/>
+                    <label for="storeAvg">Store Average Cookies Per Customer: </label><input id="storeAvg" name="storeAvg" type="number" step="0.1" min="1" required/>
                 </div>
             </fieldset>
             <input type="submit" value="Add Store" />

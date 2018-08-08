@@ -150,8 +150,19 @@ var newStore = document.getElementById('storeForm');
 newStore.addEventListener('submit', function(e){
   e.preventDefault();
   console.log("Event has been triggered.");
-  var addNewStore = new Store(e.target.storeName.value, e.target.storeMin.value, e.target.storeMax.value, e.target.storeAvg.value);
-  addNewStore.addRow();
+  var name = e.target.storeName.value;
+  var min = e.target.storeMin.value;
+  var max = e.target.storeMax.value;
+  var avg = e.target.storeAvg.value;
+
+  if(min > max){
+    alert('Your minimum value cannot be greater than your max!');
+  }
+  else{
+    var addNewStore = new Store(name, min, max, avg);
+    addNewStore.addRow();
+    newStore.reset();
+  }
 })
 
 //calls on functions

@@ -127,5 +127,16 @@ footer p{
 
 #storeForm{
     background-color: #ED8E76;
+    border: 2px solid #9B7C7C;    
     opacity: .9;
+    width: fit-content;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: right;
+    font-size: 17px;
+}
+
+input{
+    margin: 10px;
 }
