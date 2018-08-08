@@ -141,6 +141,12 @@ function addFooter(){
   location.appendChild(hour);
 }
 
+var newStore = document.getElementById('storeForm');
+newStore.addEventListener('submit', function(e){
+  e.preventDefault();
+  console.log("Event has been triggered.");
+})
+
 //calls on functions
 makeHeader();
 addFooter();
