@@ -2,7 +2,10 @@
 
 console.log('js is linked');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
-var grandTotal = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+//create array of totals set to 0
+var grandTotal = Array(16);
+grandTotal.fill(0);
 
 //Store constructor
 function Store(name, tag, min, max, avg){
