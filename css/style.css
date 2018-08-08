@@ -1,3 +1,8 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body{
     background-image: url('../img/salmon.png');
     background-size: 50% auto;
@@ -5,20 +10,28 @@ body{
     color: #143245;
     background-color: #C3D4E2;
     cursor: url(../img/salmonPointer.png), auto;
+    height: 1000px;
 }
 
 .head{
-    font-size: 30px;
+    font-family:'Bungee Outline';
+    font-size: 50px;
     font-weight: bolder;
     text-align: center;
     padding: 25px 0 10px 0;
     color: #143245;
     background-color: whitesmoke;
-    opacity: 0.85;
+    border: 5px solid #9B7C7C;
+}
+
+.logo{
+    width: 200px;
+    margin: 15px 0;
 }
 
 .link{
     font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 h3{
@@ -28,6 +41,10 @@ h3{
     border-bottom: 3px solid black;
     color: #143245;
     
+}
+
+h2{
+    font-size: 30px;
 }
 
 .table{
@@ -58,4 +75,52 @@ tr{
 
 #time{
     border-top: none;
+}
+
+.topBanner{
+    background-color: #ED8E76;
+    opacity: .9;
+    height: 400px;
+    margin: 80px 50px;
+    border-radius: 25px;
+}
+
+.banner_img{
+    width: 300px;
+    margin: 50px 50px;
+    border-radius: 5px;
+}
+
+.banner_text{
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    vertical-align: top;
+    margin-top: 90px;
+    font-size: 20px;
+}
+
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #143245;
+    color: whitesmoke;
+    text-align: center;
+    height: fit-content;
+    
+}
+
+footer h2{
+    padding: 10px;
+    margin: 10px;
+}
+
+footer p{
+    display: inline-block;
+    font-size: 15px;
+    font-family: sans-serif;
+    padding: 17px;
+    vertical-align: middle;
 }
