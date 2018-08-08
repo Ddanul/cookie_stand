@@ -34,7 +34,8 @@ var locations = [firstAndPike, seaTac, seaCenter, capHill, alki];
 
 //Generates a random number given min and max customers of store
 function randCust() {
-  var random = Math.floor(Math.random() * (this.max - this.min) + this.min);
+  var random = Math.floor((Math.random() * (this.max - this.min)) + this.min);
+  console.log(`random : ${random}, max: ${this.max}, min: ${this.min}`);
   return random;
 }
 
@@ -43,6 +44,7 @@ function cookiesSold() {
   var total = 0;
   for (var i = 0; i < 15; i++) {
     var newCookie = Math.round(this.custPerHr() * this.avg)
+    console.log(`newCookie ${i} : ${newCookie}`)
     this.cookiePerHour.push(newCookie);
     total += newCookie;
   }
@@ -128,21 +130,15 @@ function addFooter(){
   footTitle.textContent = 'Grand Total';
   footer.appendChild(footTitle);
   
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i <= 15; i++) {
 
-    //adds in the times of operation to table header
+    //adds in the totals to table footer
     footer = document.getElementById('foot');
     var hour = document.createElement('td');
     hour.textContent = grandTotal[i];
     hour.className = 'foot'+i;
     footer.appendChild(hour);
   }
-  //displays the total for location
-  var location = document.getElementById('foot');
-  var hour = document.createElement('td');
-  hour.className = 'foot'+15;
-  hour.textContent = grandTotal[grandTotal.length-1];
-  location.appendChild(hour);
 }
 
 //Form input used to generate new store location and populate new row
@@ -151,18 +147,17 @@ newStore.addEventListener('submit', function(e){
   e.preventDefault();
   console.log("Event has been triggered.");
   var name = e.target.storeName.value;
-  var min = e.target.storeMin.value;
-  var max = e.target.storeMax.value;
-  var avg = e.target.storeAvg.value;
-
+  var min = parseInt(e.target.storeMin.value);
+  var max = parseInt(e.target.storeMax.value);
+  var avg = parseInt(e.target.storeAvg.value);
+  debugger;
   if(min > max){
     alert('Your minimum value cannot be greater than your max!');
-  }
-  else{
+  }else{
     var addNewStore = new Store(name, min, max, avg);
     addNewStore.addRow();
-    newStore.reset();
   }
+  newStore.reset();
 })
 
 //calls on functions
