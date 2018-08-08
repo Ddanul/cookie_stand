@@ -124,3 +124,8 @@ footer p{
     padding: 17px;
     vertical-align: middle;
 }
+
+#storeForm{
+    background-color: #ED8E76;
+    opacity: .9;
+}

@@ -26,8 +26,25 @@
             </tfoot>
         </table>
     </section>
-
-
+    <section>
+        <form id="storeForm">
+            <fieldset>
+                <div>
+                    <label for="storeName">Store Name: </label><input id="storeName" name="storeName" type="text" required/>
+                </div>
+                <div>
+                    <label for="storeMin">Store Minimum Number of Customers Per Hour: </label><input id="storeMin" name="storeMin" type="text" required/>
+                </div>
+                <div>
+                    <label for="storeMax">Store Maximum Number of Customers Per Hour: </label><input id="storeMax" name="storeMax" type="text" required/>
+                </div>
+                <div>
+                    <label for="storeAvg">Store Average Cookies Per Customer: </label><input id="storeAvg" name="storeAvg" type="text" required/>
+                </div>
+            </fieldset>
+            <input type="submit" value="Add Store" />
+        </form>
+    </section>
     <script src="js/app.js"></script>
 </body>
 </html>

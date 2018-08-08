@@ -8,9 +8,8 @@ var grandTotal = Array(16);
 grandTotal.fill(0);
 
 //Store constructor
-function Store(name, tag, min, max, avg){
+function Store(name, min, max, avg){
   this.name = name;
-  this.tag = tag;
   this.min = min;
   this.max = max;
   this.avg = avg;
@@ -24,11 +23,11 @@ Store.prototype.finalTotal = finalTotal;
 Store.prototype.updateFooter = updateFooter;
 
 //Constructing new Stores
-var firstAndPike = new Store('1st and Pike', 'firstAndPike', 23, 65, 6.3);
-var seaTac = new Store('SeaTac Airport', 'seaTac', 3, 24, 1.2);
-var seaCenter = new Store('Seattle Center', 'seaCenter', 11, 38, 3.7);
-var capHill = new Store('Capitol Hill', 'capHill', 20, 38, 2.3);
-var alki = new Store('Alki', 'alki', 2, 16, 4.6);
+var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
+var seaTac = new Store('SeaTac Airport', 3, 24, 1.2);
+var seaCenter = new Store('Seattle Center', 11, 38, 3.7);
+var capHill = new Store('Capitol Hill', 20, 38, 2.3);
+var alki = new Store('Alki', 2, 16, 4.6);
 
 var locations = [firstAndPike, seaTac, seaCenter, capHill, alki];
 
