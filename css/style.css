@@ -20,8 +20,28 @@ body{
     text-align: center;
     padding: 25px 0 10px 0;
     color: #143245;
-    background-color: whitesmoke;
+    background-color: white;
     border: 5px solid #9B7C7C;
+    opacity: .95;
+}
+
+.navbar{
+    background-color: #143245;
+    font-size: 25px;
+    height: 50px;
+    text-align: center;
+}
+
+.navbar a{
+    font-family:'Bungee Outline';
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 0 50px;
+    line-height: 50px;
+}
+
+.navbar a:hover{
+    color: #ED8E76;
 }
 
 .logo{
@@ -40,7 +60,6 @@ h3{
     margin: 10px 5px 10px 5px;
     border-bottom: 3px solid black;
     color: #143245;
-    
 }
 
 h2{
@@ -80,52 +99,111 @@ tr{
 .topBanner{
     background-color: #ED8E76;
     border: 2px solid #9B7C7C;  
-    opacity: .9;
+    opacity: .95;
     height: 400px;
-    margin: 80px auto;
+    margin: 50px auto;
     border-radius: 25px;
     width: fit-content;
 }
 
 .banner_img{
-    width: 300px;
-    margin: 50px 50px;
+    width: 400px;
+    margin: 80px 50px;
     border-radius: 5px;
+    border: 2px solid #9B7C7C;  
 }
 
 .banner_text{
     display: inline-block;
-    width: 400px;
-    height: 500px;
+    max-width: 400px;
     vertical-align: top;
-    margin-top: 90px;
+    margin-top: 70px;
     font-size: 20px;
     padding-right: 50px;
+    line-height: 1.25em;
+}
+
+.middleBanner{
+    color: whitesmoke;
+    background-color: #143245;
+    opacity: .95;
+    height: 250px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.midText{
+    display: inline-block;
+    margin: 50px;
+    padding: 20px;
+    vertical-align: top;
+    border: 2px double whitesmoke;
+}
+
+.midText h2{
+    padding: 20px;
+}
+
+.midImg{
+    width: 200px;
+    border-radius: 150px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.tiles{
+    text-align: center;
+}
+
+.card{
+    max-width: 400px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: whitesmoke;
+    border: 2px solid #9B7C7C;  
+    border-radius: 15px;
+    opacity: .95;
+    padding: 25px;
+    margin: 0 25px 50px 25px;
+}
+
+.card img{
+    width: 300px;
+    height: 165px;
+}
+
+.card p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    padding: 10px;
 }
 
 footer{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
     background-color: #143245;
+    opacity: .9;
     color: whitesmoke;
     text-align: center;
-    height: fit-content;
-    
+    height: fit-content;  
 }
 
 footer h2{
-    padding: 10px;
+    font-family:'Bungee Outline';
+    padding: 20px;
     margin: 10px;
 }
 
 footer p{
     display: inline-block;
-    font-size: 15px;
+    font-size: 18px;
     font-family: sans-serif;
-    padding: 17px;
+    padding: 0 10px 25px 10px;
+    margin: 0 20px;
     vertical-align: middle;
+}
+
+footer p:hover{
+    color: #ED8E76;
 }
 
 #storeForm{
@@ -143,3 +221,23 @@ footer p{
 input{
     margin: 10px;
 }
+
+.flash {
+    animation-name: flash;
+     animation-duration: 0.5s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-play-state: running;
+ }
+ 
+ @keyframes flash {
+     from {color: #ED8E76;}
+     to {color: black;}
+ }
+
+ #shirt:hover{
+    content: url('../img/cutter.jpeg');
+    width: 300px;
+    height: 165px;
+ }
