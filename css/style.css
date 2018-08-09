@@ -202,6 +202,10 @@ footer p{
     vertical-align: middle;
 }
 
+footer span{
+    font-size: 15px;
+}
+
 footer p:hover{
     color: #ED8E76;
 }
