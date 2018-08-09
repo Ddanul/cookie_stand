@@ -79,10 +79,12 @@ tr{
 
 .topBanner{
     background-color: #ED8E76;
+    border: 2px solid #9B7C7C;  
     opacity: .9;
     height: 400px;
-    margin: 80px 50px;
+    margin: 80px auto;
     border-radius: 25px;
+    width: fit-content;
 }
 
 .banner_img{
@@ -98,6 +100,7 @@ tr{
     vertical-align: top;
     margin-top: 90px;
     font-size: 20px;
+    padding-right: 50px;
 }
 
 footer{
@@ -127,7 +130,7 @@ footer p{
 
 #storeForm{
     background-color: #ED8E76;
-    border: 2px solid #9B7C7C;    
+    border: 2px solid #9B7C7C;
     opacity: .9;
     width: fit-content;
     margin: 25px auto;

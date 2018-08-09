@@ -14,6 +14,7 @@ function Store(name, min, max, avg){
   this.max = max;
   this.avg = avg;
   this.cookiePerHour = [];
+  this.tosserPerHour = [];
 }
 
 //assigns methods to Store objects
@@ -33,7 +34,6 @@ var locations = [firstAndPike, seaTac, seaCenter, capHill, alki];
 //Generates a random number given min and max customers of store
 function randCust() {
   var random = Math.floor((Math.random() * (this.max - this.min)) + this.min);
-  console.log(`random : ${random}, max: ${this.max}, min: ${this.min}`);
   return random;
 }
 
@@ -42,10 +42,16 @@ function cookiesSold() {
   var total = 0;
   for (var i = 0; i < 15; i++) {
     var newCookie = Math.round(this.custPerHr() * this.avg)
-    console.log(`newCookie ${i} : ${newCookie}`)
     this.cookiePerHour.push(newCookie);
     total += newCookie;
+    //calculates number of cookie tossers needed for that hour
+    var tossTot = Math.floor(newCookie/20);
+    if(newCookie % 20){
+      tossTot++;
+    }
+    this.tosserPerHour.push(tossTot);
   }
+  console.log(`tosser count ${this.tosserPerHour}`)
   this.cookiePerHour.push(total);
 }
 
