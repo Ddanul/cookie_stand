@@ -33,7 +33,7 @@ var locations = [firstAndPike, seaTac, seaCenter, capHill, alki];
 
 //Generates a random number given min and max customers of store
 function randCust() {
-  var random = Math.floor((Math.random() * (this.max - this.min)) + this.min);
+  var random = Math.floor((Math.random() * (this.max - this.min+1)) + this.min);
   return random;
 }
 
